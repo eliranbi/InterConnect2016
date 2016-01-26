@@ -9,3 +9,6 @@ IonicApp/plugins/
 mobilefirst/
 .wlapp
 IBMTechExBackEnd/mobilefirst/bin
+SLTechExEmployee/node_modules/async
+SLTechExEmployee/node_modules/fs
+SLTechExEmployee/node_modules/request
