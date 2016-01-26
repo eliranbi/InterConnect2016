@@ -162,6 +162,9 @@
     "installed_plugins": {
         "cordova-plugin-mfp": {
             "PACKAGE_NAME": "com.ibm.IBMTechEXEmployee"
+        },
+        "org.apache.cordova.console": {
+            "PACKAGE_NAME": "com.ibm.IBMTechEXEmployee"
         }
     },
     "dependent_plugins": {

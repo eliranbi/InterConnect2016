@@ -64,6 +64,7 @@
 		39F549A3F279482B98F0730D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2E8060FB6049BA9B5B2D97 /* Security.framework */; };
 		0DAE2D7F9FEE4336A825986D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 987A13D1A84D4D209591388A /* CoreData.framework */; };
 		502454EE95A44F85B3F40B6F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCB5925803B4B2AA0E3C412 /* QuartzCore.framework */; };
+		C827A691DB944522AF911FDD /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE6F976CA224BAEAD3BD251 /* CDVLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +163,8 @@
 		3E2E8060FB6049BA9B5B2D97 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		987A13D1A84D4D209591388A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreData.framework"; path = "System/Library/Frameworks/CoreData.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		5FCB5925803B4B2AA0E3C412 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuartzCore.framework"; path = "System/Library/Frameworks/QuartzCore.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		9EE6F976CA224BAEAD3BD251 /* CDVLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLogger.m"; path = "org.apache.cordova.console/CDVLogger.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		6A0FA6D7D0E54A1BB7ADE442 /* CDVLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLogger.h"; path = "org.apache.cordova.console/CDVLogger.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +307,8 @@
 				FFA60B85F87245B5821BC85C /* CDVReachability.h */,
 				9268999428444D45A2148339 /* MFPAppDelegate.m */,
 				BB223698C98C4B4FA691AA4A /* MFPAppDelegate.h */,
+				9EE6F976CA224BAEAD3BD251 /* CDVLogger.m */,
+				6A0FA6D7D0E54A1BB7ADE442 /* CDVLogger.h */,
 			);
 			name = Plugins;
 			path = "IBMTechEXEmployee/Plugins";
@@ -502,6 +507,7 @@
 				B24A73BF3406402CB35035E0 /* CDVConnection.m in Sources */,
 				08ADC4638CF147178BA91556 /* CDVReachability.m in Sources */,
 				24F702AD86A240C594DC581C /* MFPAppDelegate.m in Sources */,
+				C827A691DB944522AF911FDD /* CDVLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

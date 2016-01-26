@@ -117,6 +117,9 @@
     <feature name="WLAuthorizationManagerPlugin">
         <param name="ios-package" value="WLAuthorizationManagerPlugin" />
     </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
+    </feature>
     <icon height="57" src="res/icon/ios/icon.png" width="57" />
     <icon height="114" src="res/icon/ios/icon@2x.png" width="114" />
     <icon height="40" src="res/icon/ios/icon-40.png" width="40" />
@@ -154,7 +157,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <preference name="mfpServerUrl" value="http://10.0.1.5:10080" />
+    <preference name="mfpServerUrl" value="http://172.31.6.135:10080" />
     <preference name="mfpServerRuntime" value="IBMTechExBackEnd" />
     <preference name="displayName" value="IBMTechEXEmployee" />
     <preference name="mfpManualInit" value="false" />

@@ -135,6 +135,10 @@
                         {
                             "xml": "<feature name=\"WLAuthorizationManagerPlugin\"><param name=\"ios-package\" value=\"WLAuthorizationManagerPlugin\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -217,6 +221,9 @@
     },
     "installed_plugins": {
         "cordova-plugin-mfp": {
+            "PACKAGE_NAME": "com.ibm.IBMTechEXEmployee"
+        },
+        "org.apache.cordova.console": {
             "PACKAGE_NAME": "com.ibm.IBMTechEXEmployee"
         }
     },

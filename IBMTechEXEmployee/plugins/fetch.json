@@ -54,5 +54,13 @@
         },
         "is_top_level": false,
         "variables": {}
+    },
+    "org.apache.cordova.console": {
+        "source": {
+            "type": "local",
+            "path": "/Applications/IBM/MobileFirst-CLI/mobilefirst-cli/node_modules/cordovacmd/cordova/plugins/cordova-plugin-console"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

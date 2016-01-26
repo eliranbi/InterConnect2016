@@ -1,4 +1,4 @@
-  ibmApp.controller('employeeDetailCtrl', function($scope, EmployeeService,
+ibmApp.controller('employeeDetailCtrl', function($scope, EmployeeService,
                                  employeeDetailList , empId ,$ionicHistory) {
       $scope.employee = {
             "first_name" : "",

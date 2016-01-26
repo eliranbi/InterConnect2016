@@ -60,25 +60,29 @@ ibmApp.config(function ($stateProvider, $urlRouterProvider) {
         })
 })
 
+
 //application services for employee and employee details.
 ibmApp.factory("EmployeeService", function ($http) {
     console.log(">> in EmployeeService ...");
     var employees = [];
+    var resourceRequest = new WLResourceRequest(
+        "http://127.0.0.1:3000/api/employees", WLResourceRequest.GET
+    );
     return {
         getEmployeeList: function () {
-            return $http.get('data/employee.json').then(function (response) {
-                employees = response.data;
+            return resourceRequest.send().then(function (response) {
+                employees = response.responseJSON;
                 return employees;
+            }, function (response) {
+                console.log("error:" + response);
+                return null;
             });
         },
-
         getEmployee: function (index) {
             return employees[index];
         },
-
         getEmployeeById: function (id) {
             var _emp;
-            console.log(">> getEmployeeById :" + id);
             angular.forEach(employees, function (emp) {
                 console.log(">> getEmployeeById :" + id + " ==  " + emp._id);
                 if (emp._id == id) {
@@ -86,16 +90,25 @@ ibmApp.factory("EmployeeService", function ($http) {
                 }
             });
             return _emp;
-
         }
     };
 })
+
 
 ibmApp.factory("EmployeeDetailsService", function ($http) {
     console.log(">> in EmployeeDetailsService ...");
     return {
         getEmployeeDetails: function (empId) {
-            return $http.get('data/details.json');
+            //using path param.
+            var resourceRequest = new WLResourceRequest(
+                "http://127.0.0.1:3000/api/employees/" + empId, WLResourceRequest.GET
+            );
+            return resourceRequest.send().then(function (response) {
+                return response.responseJSON;
+            }, function (response) {
+                console.log("error:" + response);
+                return null;
+            });
         }
     };
 })
@@ -119,25 +132,23 @@ ibmApp.controller('mainCtrl', ['$scope', 'employees', function ($scope, employee
     $scope.employees = employees;
     }])
 
-ibmApp.controller('employeeDetailCtrl', function ($scope, EmployeeService,
-    employeeDetailList, empId, $ionicHistory) {
-    $scope.employee = {
-        "first_name": "",
-        "last_name": "",
-        "_id": ""
-    }
-    $scope.employeeDetails = {}
-    console.log(">> in - employeeDetailCtrl:" + employeeDetailList);
-    //Employee service cached the list of employee
-    $scope.employee = EmployeeService.getEmployeeById(empId);
-    var data = employeeDetailList.data;
-    angular.forEach(data, function (emp) {
-        if (emp._id == $scope.employee._id) {
-            $scope.employeeDetails = emp;
-            $scope.employeeDetails.email = angular.lowercase($scope.employeeDetails.email);
-        }
-    });
-})
+ibmApp.controller('employeeDetailCtrl', function($scope, EmployeeService,
+                                 employeeDetailList , empId ,$ionicHistory) {
+      $scope.employee = {
+            "first_name" : "",
+            "last_name" : "",
+            "_id" : ""
+      }
+      $scope.employeeDetails = {}
+      console.log(">> in - employeeDetailCtrl:" + employeeDetailList);
+      //Employee service cached the list of employee
+      $scope.employee = EmployeeService.getEmployeeById(empId);
+      $scope.employeeDetails = employeeDetailList;
+      $scope.employeeDetails.email =  angular.lowercase($scope.employeeDetails.email);
+
+  })
+    
+
 
 
 ibmApp.controller('loginCtrl', ['$scope', '$state', '$timeout',
@@ -180,10 +191,20 @@ var wlInitOptions = {
 // Called automatically after MFP framework initialization by WL.Client.init(wlInitOptions).
 function wlCommonInit() {
     // Common initialization code goes here
-    console.log('MobileFirst Client SDK Initilized');
+    console.log('>> MobileFirst Client SDK Initilized');
     angular.element(document).ready(function () {
         mfpMagicPreviewSetup();
         angular.bootstrap(document.body, ['ibmApp']);
+        
+        //adding call to mfp server ...          
+            WL.Client.connect({
+	     		onSuccess: function(rsp){
+                    console.log(">> WL.Client.connect() -  onSuccess :" + rsp);
+                },
+	     		onFailure: function(rsp){
+                    console.log(">> WL.Client.connect() -  onFailure :" + rsp);
+                }
+	     });        
     });
 }
 
